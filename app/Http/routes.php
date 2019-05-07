@@ -29,6 +29,7 @@ Route::group(['middleware' => ['web']], function() {
 	    $validator = Validator::make($request->all(), [
 			'name' => 'required|max:255',
 		]);
+
 		if($validator->fails()) {
 			return redirect('/')
 				->withInput()
@@ -39,8 +40,10 @@ Route::group(['middleware' => ['web']], function() {
 		$book->save();
 		
 		return redirect('/');
-	    
 	});
+
 	Route::delete('/book/{book}', function(Book $book) {
+	    $book->delete();
+		return redirect('/');
 	});
 });
