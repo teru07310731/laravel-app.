@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-use App\Book;
+use App\Books;
 use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['web']], function() {
