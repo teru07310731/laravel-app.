@@ -20,10 +20,12 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['web']], function() {
 	Route::get('/', function(){
+		$books = Book::all();
+		return view('layouts.books', [
+	    	'books' => $books
+	    ]);
 	});
-
 	Route::post('/book', function(Request $request) {
-
 	});
 	Route::delete('/book/{book}', function(Book $book) {
 	});
