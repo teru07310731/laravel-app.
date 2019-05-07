@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+use App\Book;
+use Illuminate\Http\Request;
+
+Route::group(['middleware' => ['web']], function() {
+	Route::get('/', function(){
+	});
+
+	Route::post('/book', function(Request $request) {
+
+	});
+	Route::delete('/book/{book}', function(Book $book) {
+	});
 });
